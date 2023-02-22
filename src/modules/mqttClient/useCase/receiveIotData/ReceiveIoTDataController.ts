@@ -12,10 +12,3 @@ export class ReciveIoTDataController {
     console.log(message.toString())
   }
 }
-
-// clientMqtt.on('message', function (topic, message) {
-//     // message is Buffer
-//     console.log(topic)
-//     console.log(message.toString('utf8'))
-//     // client.end()
-//   })
