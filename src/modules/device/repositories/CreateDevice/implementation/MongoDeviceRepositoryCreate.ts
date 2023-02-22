@@ -4,6 +4,7 @@ import { IDeviceRepository } from "../IDeviceRepositoryCreate";
 
 export class MongoDeviceRepository implements IDeviceRepository {
   async save(device: Device): Promise<Device> {
-    return await DeviceSchema.create(device);
+    // console.log(device)
+    return await DeviceSchema.create(device)
   }
 }

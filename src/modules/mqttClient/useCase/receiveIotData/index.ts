@@ -4,8 +4,8 @@ import { ReciveIoTDataUseCase } from "./ReceiveIoTDataUseCase";
 
 const PrismaDeviceRepository = new Prisma.MongoDeviceRepositoryUpdate()
 
-const reciveIoTDataUseCase = new ReciveIoTDataUseCase(PrismaDeviceRepository);
+const IoTDataUseCase = new ReciveIoTDataUseCase(PrismaDeviceRepository);
 
-const reciveIoTDataController = new ReciveIoTDataController(reciveIoTDataUseCase);
+const IoTDataController = new ReciveIoTDataController(IoTDataUseCase);
 
-export { reciveIoTDataUseCase, reciveIoTDataController };
+export { IoTDataUseCase, IoTDataController };

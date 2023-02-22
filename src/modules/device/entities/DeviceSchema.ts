@@ -7,10 +7,17 @@ const subdocumentoSchema = new Schema<DeviceInfo>({
     },
     measurement:{
         type:String
+        
     },
+
+    mqttClientTopic:{
+      type:String,
+    },
+    
     value:{
       type:String
-    }
+    }, 
+  
   });
 
 const schemaDevice = new Schema<Device>({
@@ -19,7 +26,7 @@ const schemaDevice = new Schema<Device>({
     type: String,
     required:true
   },
-
+  
   deviceInput:[subdocumentoSchema],
 
   created_at: {

@@ -1,14 +1,22 @@
-import { clientMqtt } from "../../app";
-import { reciveIoTDataController } from "./useCase/receiveIotData/index";
+import { IoTDataController } from "./useCase/receiveIotData/index";
+import mqtt from 'mqtt'
 
-// const handleMqtt = ('message', reciveIoTDataController)
 
-export const handleMqtt = () => {reciveIoTDataController}
-clientMqtt.on("message", handleMqtt)
+export const mqttClientHandle  = () => {
 
-// clientMqtt.on('message', function (topic, message) {
-//     // message is Buffer
-//     console.log(topic)
-//     console.log(message.toString('utf8'))
-//     // client.end()
-//   })
+    const clientMqtt  = mqtt.connect(process.env.MQTT_URL)
+
+    clientMqtt.on('connect', function () {
+    
+        clientMqtt.subscribe('BCIBotao1', function (err, message) {
+            console.log(`MQTT connect in ${process.env.MQTT_URL}, in topic ${message[0].topic}`)
+        })
+    })
+
+    clientMqtt.on('message', function(topic, message){
+        IoTDataController.handle(topic, message)
+        // eventEmitter.emit('newMessage', message);
+
+    })
+}
+

@@ -6,6 +6,6 @@ export class MongoDeviceRepositoryUpdate implements IDeviceRepositoryUpdate {
 
   async performUpdatingDevice(dataDevice:Device): Promise<any> {
     const {id, name, deviceInput } = dataDevice;
-    return await DeviceSchema.findByIdAndUpdate({ _id: id },{name: name});
+    return await DeviceSchema.findByIdAndUpdate({ _id: id },{name:name, deviceInput:deviceInput });
   }
 }

@@ -8,7 +8,6 @@ export class CreateDeviceController {
 
   async handle(request: Request, response: Response): Promise<Response> {
     const { name, deviceInput } = request.body;
-    const { measurement, nameInput, value } = deviceInput;
 
     if (!name) {
       throw new HttpError(
@@ -16,26 +15,14 @@ export class CreateDeviceController {
         404
       );
     }
-    if (!measurement) {
-      throw new HttpError(
-        "Property 'measurement' not found in request body",
-        404
-      );
-    }
 
-    if (!nameInput) {
+    if (deviceInput.length == 0) {
       throw new HttpError(
-        "Property 'measurement' not found in request body",
+        "Property 'deviceInput' not found in request body",
         404
       );
     }
-    
-    if (!value) {
-      throw new HttpError(
-        "Property 'measurement' not found in request body",
-        404
-      );
-    }
+    // console.log(request.body)
 
     const dataDevice = await this.createDeviceUseCase.execute(request.body);
     return response.status(201).json({ error: false, dataDevice });

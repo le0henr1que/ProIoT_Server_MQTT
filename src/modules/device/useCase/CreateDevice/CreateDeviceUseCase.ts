@@ -5,6 +5,7 @@ export class CreateDeviceUseCase {
   constructor(private deviceRepositoryCreate: IDeviceRepository) {}
 
   async execute(device: Device) {
+    // console.log(device)
     return await this.deviceRepositoryCreate.save(device)
   }
 }

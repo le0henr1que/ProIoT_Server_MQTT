@@ -15,5 +15,7 @@ type measurement = "ºC" | "%" | null;
 export interface DeviceInfo {
     nameInput:name;
     measurement:measurement;
-    value:any
+    value:any;
+    mqttClientTopic?:string;
+
 }

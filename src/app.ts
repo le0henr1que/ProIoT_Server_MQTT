@@ -8,18 +8,24 @@ import { Server, Socket } from 'socket.io';
 import { errorMiddleware } from "./middlewares/errors/errorMiddleware";
 import { deviceRoute } from "./modules/device/routes";
 import { configCorsSocket } from "./Utils/Config/corsSocket";
+import { IoTDataController } from "./modules/mqttClient/useCase/receiveIotData/index";
+import {mqttClientHandle} from "./modules/mqttClient/mqttClientHandle"
+import { startSocketServer } from "./modules/socketService/socketHandle";
 
-const clientMqtt  = mqtt.connect(process.env.MQTT_URL)
-
-connectToMongoDb();
 
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server, configCorsSocket);
+
+connectToMongoDb();
+mqttClientHandle();
+startSocketServer();
 
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(deviceRoute);
 app.use(errorMiddleware);
 
-export { app, clientMqtt, io, server };
+
+
+export { app, io, server };
