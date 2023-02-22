@@ -1,0 +1,10 @@
+import { Device } from "types";
+import { IDeviceRepositoryUpdate } from "../../repositories/UpdateDevice/IDeviceRepositoryUpdate"
+
+export class ReciveIoTDataUseCase {
+  constructor(private repositoryReciveIoTData: IDeviceRepositoryUpdate) {}
+
+  async execute(topic:string) {
+    return await this.repositoryReciveIoTData.performUpdatingDevice(topic)
+  }
+}
