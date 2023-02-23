@@ -10,6 +10,8 @@
 
   <link rel="stylesheet" href="style.css">
   <title>Chat da Baguncinha</title>
+  <h1 id="socket1"></h1>
+  <h1 id="socket2"></h1>
   
 </head>
 <body>
@@ -20,13 +22,20 @@
   <script type="text/javascript">
     // var socket = io('http://localhost:4000');
     var socket = io('http://localhost:3000');
-   
-        socket.on('newMessage', function(users){
-       
-        console.log(users)
-      })
+    socket.on('connect', () => {
+        socket.emit('subscribe', ['BTNTESTE', 'BCIBotao1']);
+    });
 
-    
+    socket.on('BTNTESTE', function(users){
+        $("#socket1").text(users)
+    })
+
+    socket.on('BCIBotao1', function(users){
+       $("#socket2").text(users)
+     })
+
+
+      
 
   </script>
 </body>

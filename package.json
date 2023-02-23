@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev:server": "tsnd src/server.ts"
+    "dev:server": "tsnd src/server.ts",
+    "teste:mqtt":"tsnd ./src/test/mqqtSubscrible.ts"
   },
   "author": "",
   "license": "ISC",

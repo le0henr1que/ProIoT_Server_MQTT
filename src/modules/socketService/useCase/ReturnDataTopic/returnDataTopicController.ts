@@ -1,16 +1,17 @@
 import { Response, Request, NextFunction } from "express";
 import { HttpError } from "../../../../shared/errors/appError";
-import { ReciveIoTDataUseCase } from "./ReceiveIoTDataUseCase";
+import { ReturnDataTopicUseCase } from "./ReturnDataTopicUseCase";
 import { Device, DeviceInfo } from "types";
 import { myEmitter } from "../../../../shared/event/eventEmmiter"
 
-export class ReciveIoTDataController {
-  constructor(private reciveIoTDataUseCase: ReciveIoTDataUseCase) {}
+export class ReturnDataTopicController {
+  constructor(private returnDataTopicUseCase: ReturnDataTopicUseCase) {}
 
-  async handle(topic:string, message:Buffer): Promise<any> {
+  async handle(): Promise<any> {
     
-    await this.reciveIoTDataUseCase.execute(topic, message)
-    console.log(message.toString())
+    const dataTopic = await this.returnDataTopicUseCase.execute()
+    return dataTopic
+    // console.log(dataTopic)
     
     // myEmitter.emit('messageMqtt', message.toString());
     // console.log("evento emitido")

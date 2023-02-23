@@ -1,4 +1,4 @@
-import * as Prisma from "../../repositories/UpdateDevice/implementation/MongoDeviceRepositoryDelete";
+import * as Prisma from "../../repositories/UpdateDevice/implementation/MongoDeviceRepositoryMqtt";
 import { ReciveIoTDataController } from "./ReceiveIoTDataController";
 import { ReciveIoTDataUseCase } from "./ReceiveIoTDataUseCase";
 
