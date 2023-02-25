@@ -18,6 +18,9 @@ Para este projeto, serão necessários os seguintes componentes:
   * Noded Js
   * Banco de dados mongoDb (local)
   * Led
+  
+## Documentação
+A documentação da API está disponível em http://localhost:5000/api/docs , Ela fornece informações detalhadas sobre as rotas disponíveis e os parâmetros de entrada e saída de cada rota.
 
 ## Esquema elétrico
 ![image](https://user-images.githubusercontent.com/68018921/221332759-7b336f85-f03e-4ddf-95a4-b009d69d503b.png)
@@ -45,7 +48,7 @@ Para simular o envio de mensagens `publish` de um dispositivo, basta executar o 
  Para que o envio do mqtt funcione, primeiro é necessário cadastrar um dispositivo com o Tópico mqtt que você deseja testar.
 ### Exemplo: 
 
-Chame a rota `/device` no metodo `POST` para criar um novo dispositivo enviando os seguintes dados.
+Chame a rota `/device` no metodo `POST` para criar um novo dispositivo enviando os seguintes dados, o acesse http://localhost:5000/api/docs para executar as chamadas de rotas.
 
 ```JSON
 {
