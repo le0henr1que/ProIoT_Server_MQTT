@@ -75,6 +75,8 @@ com os terminais aberto, os logs de recebimento do `publish` será exibido e o c
  ## Execução Front End
  Para melhor funcionamento e visualização da entrada dos dados, siga as etapas em https://github.com/le0henr1que/ProIoT_Front_MQTT para executar o front end.
  Em seguida realize o cadastro do dispositivo pela interface e realize o teste de `publish` pelo seu terminal e visualize a informação sendo enviada com `webSocket` em sua interface.
+ ![image](https://user-images.githubusercontent.com/68018921/221335166-174e3c2e-453e-425a-bf57-3b9ce56743fd.png)
+
  ## Funcionamento
 O sistema é constituído por módulos independentes, onde cada um é responsável por executar única e exclusivamente uma tarefa. Os módulos se comunicam entre si através de eventos enviados em gatilhos específicos.
 
