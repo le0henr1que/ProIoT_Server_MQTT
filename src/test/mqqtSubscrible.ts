@@ -6,7 +6,7 @@ import mqtt from 'mqtt';
 
 const client = mqtt.connect(process.env.MQTT_URL);
 const topic = process.argv[2];
-const message = process.argv[3];
+const message = process.argv[3].toString();
 
 
 client.on('connect', () => {

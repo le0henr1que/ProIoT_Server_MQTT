@@ -1,31 +1,24 @@
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 
-// Configuração da rede WiFi
-const char* ssid = "ssid-da-rede";
-const char* password = "senha-da-rede";
+const char* ssid = "SSID";
+const char* password = "Senha";
 
-// Configuração do servidor MQTT
 const char* mqttServer = "mqtt.eclipseprojects.io";
 const int mqttPort = 1883;
 
 #define ID_MQTT "BCI01"
-// const char* mqttUser = "";
-// const char* mqttPassword = "";
 
-// Configuração do tópico MQTT
 const char* mqttTopic = "BCIBotao1";
 int ANALOG_PIN = A0; 
 int val = 0;
-int BOARD_RESOLUTION = 1024 ; // The analogic board resolution, for example NodeMCU ESP8266 is 10 bit (from 0 to 1023)
-// Configuração do pino do botão
-// const int buttonPin = D3;
+int BOARD_RESOLUTION = 1024 ; 
+
 
 WiFiClient wifiClient;
 PubSubClient mqttClient(wifiClient);
 
 void setup() {
-  // pinMode(buttonPin, INPUT_PULLUP);
   pinMode(D5, OUTPUT);
   pinMode(D2, INPUT);
   Serial.begin(115200);
@@ -40,7 +33,6 @@ void setup() {
   Serial.println("Connected to WiFi");
 
   mqttClient.setServer(mqttServer, mqttPort);
-  // mqttClient.setCredentials(mqttUser, mqttPassword);
 
   while (!mqttClient.connected()) {
     Serial.println("Connecting to MQTT server...");
@@ -54,23 +46,20 @@ void setup() {
 }
 
 void loop() {
-  // int buttonState = digitalRead(buttonPin
-  val = analogRead(ANALOG_PIN); // Reading from analogic pin
-  if (val < BOARD_RESOLUTION / 2) {
+
+  val = analogRead(ANALOG_PIN); 
+  if (val < 18) {
     digitalWrite(D5, HIGH);
-    mqttClient.publish(mqttTopic, "Noite");
 
   } else {
    digitalWrite(D5, LOW);
-  mqttClient.publish(mqttTopic, "Dia");
-
   }
-    Serial.println(val);
-  // char b[ ] = { val };
-  // // if (buttonState == LOW) {
-  //   Serial.println(b);
+    String valStr = String(val);
 
-  //   mqttClient.publish(mqttTopic, b);
-    delay(10000);
+    Serial.println(val);
+    mqttClient.publish(mqttTopic, valStr.c_str());
+    
+  
+    delay(1000);
   // }
 }
