@@ -1,0 +1,78 @@
+{
+  "info": {
+    "_postman_id": "47afb896-a8b1-4892-8cc6-f53ba7b5188c",
+    "name": "proIoT",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+    "_exporter_id": "23356385"
+  },
+  "item": [
+    {
+      "name": "http",
+      "item": [
+        {
+          "name": "Create Device",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Meu dispositivo\",\r\n  \"deviceInput\": [\r\n    {\r\n      \"nameInput\": \"Temperatura\",\r\n      \"measurement\": \"°C\",\r\n      \"value\": \"25\",\r\n      \"mqttClientTopic\":\"BCIBotao1\"\r\n    }\r\n  ]\r\n\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "http://localhost:5000/device"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Device Copy",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:5000/devices"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Device",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "http://localhost:5000/device/63f638596df13e2831f21cb8"
+          },
+          "response": []
+        },
+        {
+          "name": "GetById",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:5000/device/63f8f7e3a2b2e370bc06fbd1"
+          },
+          "response": []
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "\r\n{\r\n        \"name\": \"My Device\",\r\n        \"deviceInput\": [{}]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "http://localhost:5000/device/63f8fa32a2b2e370bc06fc33"
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

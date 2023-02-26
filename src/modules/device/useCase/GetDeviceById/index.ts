@@ -2,10 +2,12 @@ import * as Prisma from "../../repositories/GetDeviceById/implementation/MongoDe
 import { GetByIdDeviceController } from "./GetByIdDeviceController";
 import { GetByIdDeviceUseCase } from "./GetByIdDeviceUseCase";
 
-const PrismaDeviceRepository = new Prisma.MongoDeviceRepositoryListById()
+const PrismaDeviceRepository = new Prisma.MongoDeviceRepositoryListById();
 
 const getByIdDeviceUseCase = new GetByIdDeviceUseCase(PrismaDeviceRepository);
 
-const getByIdDeviceController = new GetByIdDeviceController(getByIdDeviceUseCase);
+const getByIdDeviceController = new GetByIdDeviceController(
+  getByIdDeviceUseCase
+);
 
 export { getByIdDeviceUseCase, getByIdDeviceController };

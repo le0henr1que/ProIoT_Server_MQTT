@@ -8,13 +8,10 @@ export class UpdateDeviceController {
 
   async handle(request: Request, response: Response): Promise<Response> {
     const { name, deviceInput } = request.body;
-    const { id } = request.params
+    const { id } = request.params;
 
     if (!name) {
-      throw new HttpError(
-        "Property 'name' not found in request body",
-        404
-      );
+      throw new HttpError("Property 'name' not found in request body", 404);
     }
 
     if (deviceInput.length == 0) {
@@ -23,13 +20,13 @@ export class UpdateDeviceController {
         404
       );
     }
-    const deviceData:Device = {
-      ...request.body, 
-      id
-    }
-    console.log(deviceData)
-   
-    const device = await this.updateDeviceUseCase.execute(deviceData)
+    const deviceData: Device = {
+      ...request.body,
+      id,
+    };
+    console.log(deviceData);
+
+    const device = await this.updateDeviceUseCase.execute(deviceData);
     return response.status(201).json({ error: false, device });
   }
 }

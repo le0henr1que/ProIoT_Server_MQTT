@@ -14,9 +14,6 @@ app.listen(PORT, () => {
   console.log(`Documentation at http://localhost:${PORT}/api/docs`);
 });
 
-
-
-
 server.listen(SOCKET_PORT, () => {
   console.log(`Socket iniciado na porta ${SOCKET_PORT}`);
 });
@@ -27,5 +24,3 @@ server.listen(SOCKET_PORT, () => {
 //     console.log(message.toString('utf8'))
 //     // client.end()
 //   })
-
-  

@@ -1,42 +1,46 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"content="width-device-width,initial-scale-1.0">
-  <meta http-equiv="X-UA-Compatible"content="ie-edge">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.1/socket.io.js" integrity="sha512-9mpsATI0KClwt+xVZfbcf2lJ8IFBAwsubJ6mI3rtULwyM3fBmQFzj0It4tGqxLOGQwGfJdk/G+fANnxfq9/cew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width-device-width,initial-scale-1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie-edge" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.1/socket.io.js"
+      integrity="sha512-9mpsATI0KClwt+xVZfbcf2lJ8IFBAwsubJ6mI3rtULwyM3fBmQFzj0It4tGqxLOGQwGfJdk/G+fANnxfq9/cew=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
 
-  <link rel="stylesheet" href="style.css">
-  <title>Chat da Baguncinha</title>
-  <h1 id="socket1"></h1>
-  <h1 id="socket2"></h1>
-  
-</head>
-<body>
- 
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
- 
-  <script type="text/javascript">
-    // var socket = io('http://localhost:4000');
-    var socket = io('http://localhost:3000');
-    socket.on('connect', () => {
-        socket.emit('subscribe', ['BTNTESTE', 'BCIBotao1']);
-    });
+    <link rel="stylesheet" href="style.css" />
+    <title>Chat da Baguncinha</title>
+    <h1 id="socket1"></h1>
+    <h1 id="socket2"></h1>
+  </head>
+  <body>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
 
-    socket.on('BTNTESTE', function(users){
-        $("#socket1").text(users)
-    })
+    <script type="text/javascript">
+      // var socket = io('http://localhost:4000');
+      var socket = io("http://localhost:3000");
+      socket.on("connect", () => {
+        socket.emit("subscribe", ["BTNTESTE", "BCIBotao1"]);
+      });
 
-    socket.on('BCIBotao1', function(users){
-       $("#socket2").text(users)
-     })
+      socket.on("BTNTESTE", function (users) {
+        $("#socket1").text(users);
+      });
 
-
-      
-
-  </script>
-</body>
+      socket.on("BCIBotao1", function (users) {
+        $("#socket2").text(users);
+      });
+    </script>
+  </body>
 </html>

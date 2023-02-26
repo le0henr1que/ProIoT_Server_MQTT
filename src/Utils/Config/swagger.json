@@ -1,165 +1,156 @@
 {
-    "swagger": "2.0",
-    "info": {
-      "version": "1.0.0",
-      "title": "API de Dispositivos",
-      "description": "API para gerenciamento de dispositivos"
-    },
-    "host": "localhost:5000",
-    "basePath": "/",
-    "schemes": [
-      "http",
-      "https"
-    ],
-    "paths": {
-      "/devices": {
-        "get": {
-          "summary": "Obter lista de dispositivos",
-          "description": "Retorna uma lista de todos os dispositivos cadastrados",
-          "responses": {
-            "200": {
-              "description": "Lista de dispositivos retornada com sucesso",
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/definitions/Device"
-                }
-              }
-            }
-          }
-        },
-        "post": {
-          "summary": "Criar um novo dispositivo",
-          "description": "Cria um novo dispositivo com base nos dados fornecidos",
-          "parameters": [
-            {
-              "in": "body",
-              "name": "body",
-              "description": "Dados do dispositivo a ser criado",
-              "required": true,
-              "schema": {
-                "$ref": "#/definitions/DeviceInput"
-              }
-            }
-          ],
-          "responses": {
-            "201": {
-              "description": "Dispositivo criado com sucesso",
-              "schema": {
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "API de Dispositivos",
+    "description": "API para gerenciamento de dispositivos"
+  },
+  "host": "localhost:5000",
+  "basePath": "/",
+  "schemes": ["http", "https"],
+  "paths": {
+    "/devices": {
+      "get": {
+        "summary": "Obter lista de dispositivos",
+        "description": "Retorna uma lista de todos os dispositivos cadastrados",
+        "responses": {
+          "200": {
+            "description": "Lista de dispositivos retornada com sucesso",
+            "schema": {
+              "type": "array",
+              "items": {
                 "$ref": "#/definitions/Device"
               }
             }
           }
         }
       },
-      "/devices/{id}": {
-        "get": {
-          "summary": "Obter um dispositivo pelo ID",
-          "description": "Retorna um dispositivo com base no ID fornecido",
-          "parameters": [
-            {
-              "in": "path",
-              "name": "id",
-              "description": "ID do dispositivo a ser obtido",
-              "required": true,
-              "type": "string"
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Dispositivo retornado com sucesso",
-              "schema": {
-                "$ref": "#/definitions/Device"
-              }
-            },
-            "404": {
-              "description": "Dispositivo não encontrado"
+      "post": {
+        "summary": "Criar um novo dispositivo",
+        "description": "Cria um novo dispositivo com base nos dados fornecidos",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Dados do dispositivo a ser criado",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeviceInput"
             }
           }
-        },
-        "put": {
-          "summary": "Atualizar um dispositivo pelo ID",
-          "description": "Atualiza um dispositivo com base no ID fornecido e nos dados fornecidos",
-          "parameters": [
-            {
-              "in": "path",
-              "name": "id",
-              "description": "ID do dispositivo a ser atualizado",
-              "required": true,
-              "type": "string"
-            },
-            {
-              "in": "body",
-              "name": "body",
-              "description": "Dados do dispositivo a serem atualizados",
-              "required": true,
-              "schema": {
-                "$ref": "#/definitions/DeviceInput"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Dispositivo atualizado com sucesso",
-              "schema": {
-                "$ref": "#/definitions/Device"
-              }
-            },
-            "404": {
-              "description": "Dispositivo não encontrado"
-            }
-          }
-        },
-        "delete": {
-          "summary": "Excluir um dispositivo pelo ID",
-          "description": "Exclui um dispositivo com base no ID fornecido",
-          "parameters": [
-            {
-              "in": "path",
-              "name": "id",
-              "description": "ID do dispositivo a ser excluído",
-              "required": true,
-              "type": "string"
-            }
-          ],
-          "responses": {
-            "204": {
-              "description": "Dispositivo excluído com sucesso"
-            },
-            "404": {
-              "description": "Dispositivo não encontrado"
+        ],
+        "responses": {
+          "201": {
+            "description": "Dispositivo criado com sucesso",
+            "schema": {
+              "$ref": "#/definitions/Device"
             }
           }
         }
       }
     },
-    "definitions": {
-      "DeviceInput": {
-        "type": "object",
-        "required": [
-          "name",
-          "deviceInput"
+    "/devices/{id}": {
+      "get": {
+        "summary": "Obter um dispositivo pelo ID",
+        "description": "Retorna um dispositivo com base no ID fornecido",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "ID do dispositivo a ser obtido",
+            "required": true,
+            "type": "string"
+          }
         ],
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "Nome do dispositivo"
-          },
-          "deviceInput": {
-            "type": "array",
-            "description": "Lista de entradas de dados do dispositivo",
-            "items": {
-              "$ref": "#/definitions/DeviceInputItem"
+        "responses": {
+          "200": {
+            "description": "Dispositivo retornado com sucesso",
+            "schema": {
+              "$ref": "#/definitions/Device"
             }
+          },
+          "404": {
+            "description": "Dispositivo não encontrado"
           }
         }
       },
-      "DeviceInputItem": {
-        "type": "object",
-        "required": [
-          "nameInput",
-          "measurement"
-        ]
+      "put": {
+        "summary": "Atualizar um dispositivo pelo ID",
+        "description": "Atualiza um dispositivo com base no ID fornecido e nos dados fornecidos",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "ID do dispositivo a ser atualizado",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Dados do dispositivo a serem atualizados",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeviceInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Dispositivo atualizado com sucesso",
+            "schema": {
+              "$ref": "#/definitions/Device"
+            }
+          },
+          "404": {
+            "description": "Dispositivo não encontrado"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Excluir um dispositivo pelo ID",
+        "description": "Exclui um dispositivo com base no ID fornecido",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "ID do dispositivo a ser excluído",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Dispositivo excluído com sucesso"
+          },
+          "404": {
+            "description": "Dispositivo não encontrado"
+          }
+        }
       }
     }
+  },
+  "definitions": {
+    "DeviceInput": {
+      "type": "object",
+      "required": ["name", "deviceInput"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Nome do dispositivo"
+        },
+        "deviceInput": {
+          "type": "array",
+          "description": "Lista de entradas de dados do dispositivo",
+          "items": {
+            "$ref": "#/definitions/DeviceInputItem"
+          }
+        }
+      }
+    },
+    "DeviceInputItem": {
+      "type": "object",
+      "required": ["nameInput", "measurement"]
+    }
   }
+}

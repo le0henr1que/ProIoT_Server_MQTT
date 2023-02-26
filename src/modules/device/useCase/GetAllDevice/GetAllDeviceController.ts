@@ -6,7 +6,7 @@ export class GetAllDeviceController {
   constructor(private getAllDeviceUseCase: GetAllDeviceUseCase) {}
 
   async handle(request: Request, response: Response): Promise<Response> {
-    const device = await this.getAllDeviceUseCase.execute()
+    const device = await this.getAllDeviceUseCase.execute();
     return response.status(201).json({ error: false, device });
   }
 }

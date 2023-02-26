@@ -10,42 +10,37 @@ const deviceRoute = Router();
 
 deviceRoute.post(
   "/device",
-  resolver((request:Request, response:Response) => {
+  resolver((request: Request, response: Response) => {
     return createDeviceController.handle(request, response);
   })
 );
 
 deviceRoute.delete(
-    "/device/:id",
-    resolver((request:Request, response:Response) => {
-        return deleteDeviceController.handle(request, response);
-    })
+  "/device/:id",
+  resolver((request: Request, response: Response) => {
+    return deleteDeviceController.handle(request, response);
+  })
 );
 
 deviceRoute.get(
-    "/devices",
-    resolver((request:Request, response:Response) => {
-        return getAllDeviceController.handle(request, response);
-    })
+  "/devices",
+  resolver((request: Request, response: Response) => {
+    return getAllDeviceController.handle(request, response);
+  })
 );
 
-
 deviceRoute.get(
-    "/device/:id",
-    resolver((request:Request, response:Response) => {
-        return getByIdDeviceController.handle(request, response);
-    })
+  "/device/:id",
+  resolver((request: Request, response: Response) => {
+    return getByIdDeviceController.handle(request, response);
+  })
 );
 
 deviceRoute.put(
-    "/device/:id",
-    resolver((request:Request, response:Response) => {
-        return updateDeviceController.handle(request, response);
-    })
+  "/device/:id",
+  resolver((request: Request, response: Response) => {
+    return updateDeviceController.handle(request, response);
+  })
 );
-
-
-
-
 
 export { deviceRoute };

@@ -1,5 +1,5 @@
-import { Device } from "../../../../../types/types"
-import { DeviceSchema } from "../../../entities/DeviceSchema"
+import { Device } from "../../../../../types/types";
+import { DeviceSchema } from "../../../entities/DeviceSchema";
 import { IDeviceRepositoryDelete } from "../IDeviceRepositoryDelete";
 
 export class MongoDeviceRepositoryDelete implements IDeviceRepositoryDelete {

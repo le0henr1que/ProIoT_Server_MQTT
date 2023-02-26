@@ -1,8 +1,7 @@
 export const configCorsSocket = {
-    cors: {
-      origin: "*",
-      methods: ["GET", "POST", "PUT", "DELETE"]      
-    }, 
-    pingTimeout:200000
-    
-  }
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+  },
+  pingTimeout: 200000,
+};

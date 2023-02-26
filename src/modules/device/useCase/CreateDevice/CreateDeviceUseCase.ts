@@ -6,6 +6,6 @@ export class CreateDeviceUseCase {
 
   async execute(device: Device) {
     // console.log(device)
-    return await this.deviceRepositoryCreate.save(device)
+    return await this.deviceRepositoryCreate.save(device);
   }
 }

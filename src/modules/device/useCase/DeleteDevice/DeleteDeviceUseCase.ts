@@ -5,6 +5,6 @@ export class DeleteDeviceUseCase {
   constructor(private deviceRepositoryDelete: IDeviceRepositoryDelete) {}
 
   async execute(id: string) {
-    return await this.deviceRepositoryDelete.performDeletion(id)
+    return await this.deviceRepositoryDelete.performDeletion(id);
   }
 }

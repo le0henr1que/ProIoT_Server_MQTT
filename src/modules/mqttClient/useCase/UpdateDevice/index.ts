@@ -2,7 +2,7 @@ import * as Prisma from "../../repositories/UpdateDevice/implementation/MongoDev
 import { ReciveIoTDataController } from "./ReceiveIoTDataController";
 import { ReciveIoTDataUseCase } from "./ReceiveIoTDataUseCase";
 
-const PrismaDeviceRepository = new Prisma.MongoDeviceRepositoryUpdate()
+const PrismaDeviceRepository = new Prisma.MongoDeviceRepositoryUpdate();
 
 const IoTDataUseCase = new ReciveIoTDataUseCase(PrismaDeviceRepository);
 

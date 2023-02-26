@@ -1,6 +1,5 @@
-import { Device } from "../../../../types/types"
+import { Device } from "../../../../types/types";
 
 export interface IDeviceRepositoryReturnTopic {
-    performGetingAllTopic(): Promise<string[]>;
-
+  performGetingAllTopic(): Promise<string[]>;
 }

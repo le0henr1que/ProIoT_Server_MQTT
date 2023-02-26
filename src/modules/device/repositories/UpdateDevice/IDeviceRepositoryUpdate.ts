@@ -1,6 +1,5 @@
-import { Device } from "../../../../types/types"
+import { Device } from "../../../../types/types";
 
 export interface IDeviceRepositoryUpdate {
-    performUpdatingDevice(dataDevice:Device): Promise<Device>;
-
+  performUpdatingDevice(dataDevice: Device): Promise<Device>;
 }

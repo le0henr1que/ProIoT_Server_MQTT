@@ -2,7 +2,7 @@ import * as Prisma from "../../repositories/GetAllDevice/implementation/MongoDev
 import { GetAllDeviceController } from "./GetAllDeviceController";
 import { GetAllDeviceUseCase } from "./GetAllDeviceUseCase";
 
-const PrismaDeviceRepository = new Prisma.MongoDeviceRepositoryListAll()
+const PrismaDeviceRepository = new Prisma.MongoDeviceRepositoryListAll();
 
 const getAllDeviceUseCase = new GetAllDeviceUseCase(PrismaDeviceRepository);
 

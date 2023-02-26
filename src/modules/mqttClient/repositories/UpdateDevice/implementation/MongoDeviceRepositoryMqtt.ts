@@ -1,5 +1,5 @@
-import { Device } from "../../../../../types/types"
-import { DeviceSchema } from "../../../../device/entities/DeviceSchema"
+import { Device } from "../../../../../types/types";
+import { DeviceSchema } from "../../../../device/entities/DeviceSchema";
 import { IDeviceRepositoryUpdate } from "../IDeviceRepositoryMqtt";
 
 export class MongoDeviceRepositoryUpdate implements IDeviceRepositoryUpdate {
@@ -17,7 +17,7 @@ export class MongoDeviceRepositoryUpdate implements IDeviceRepositoryUpdate {
   //         });
   //         return acc;
   //       }, []);
-        
+
   //       console.log(result);
   //     })
   //     .catch(err => {
@@ -25,15 +25,14 @@ export class MongoDeviceRepositoryUpdate implements IDeviceRepositoryUpdate {
   //     });
   // }
 
-  async performUpdatingDevice(topic:string, message:Buffer): Promise<any> {
-
-    console.log("topic in repositori performUpdating device"+ topic)
+  async performUpdatingDevice(topic: string, message: Buffer): Promise<any> {
+    console.log("topic in repositori performUpdating device" + topic);
 
     DeviceSchema.findOneAndUpdate(
-      {'deviceInput.mqttClientTopic': topic},
-      {$set: {'deviceInput.$.value': message}},
-      {new: true},
-      (err:any, doc:any) => {
+      { "deviceInput.mqttClientTopic": topic },
+      { $set: { "deviceInput.$.value": message } },
+      { new: true },
+      (err: any, doc: any) => {
         if (err) {
           // console.log(err);
         } else {
@@ -41,7 +40,5 @@ export class MongoDeviceRepositoryUpdate implements IDeviceRepositoryUpdate {
         }
       }
     );
-
   }
-  
 }

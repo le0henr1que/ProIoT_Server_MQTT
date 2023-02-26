@@ -6,7 +6,7 @@ export class GetByIdDeviceController {
   constructor(private getByIdDeviceUseCase: GetByIdDeviceUseCase) {}
 
   async handle(request: Request, response: Response): Promise<Response> {
-    const device = await this.getByIdDeviceUseCase.execute(request.params.id)
+    const device = await this.getByIdDeviceUseCase.execute(request.params.id);
     return response.status(201).json({ error: false, device });
   }
 }

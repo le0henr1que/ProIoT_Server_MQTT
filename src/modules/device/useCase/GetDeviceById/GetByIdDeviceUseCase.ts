@@ -4,7 +4,7 @@ import { IDeviceRepositoryListById } from "../../repositories/GetDeviceById/IDev
 export class GetByIdDeviceUseCase {
   constructor(private deviceRepositoryGetById: IDeviceRepositoryListById) {}
 
-  async execute(id:string): Promise<Device> {
-    return await this.deviceRepositoryGetById.performListingById(id)
+  async execute(id: string): Promise<Device> {
+    return await this.deviceRepositoryGetById.performListingById(id);
   }
 }

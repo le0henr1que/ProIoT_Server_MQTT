@@ -1,19 +1,16 @@
-
-
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 dotenv.config();
-import mqtt from 'mqtt';
+import mqtt from "mqtt";
 
 const client = mqtt.connect(process.env.MQTT_URL);
 const topic = process.argv[2];
 const message = process.argv[3].toString();
 
-
-client.on('connect', () => {
-  console.log('Connected to MQTT broker');
+client.on("connect", () => {
+  console.log("Connected to MQTT broker");
   client.publish(topic, message);
 });
 
 setTimeout(() => {
-    client.end();
-  }, 1000);
+  client.end();
+}, 1000);

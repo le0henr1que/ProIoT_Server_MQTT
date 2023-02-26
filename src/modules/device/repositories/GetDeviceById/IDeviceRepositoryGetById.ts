@@ -1,5 +1,5 @@
-import { Device } from "../../../../types/types"
+import { Device } from "../../../../types/types";
 
 export interface IDeviceRepositoryListById {
-    performListingById(id: string): Promise<Device>;
+  performListingById(id: string): Promise<Device>;
 }

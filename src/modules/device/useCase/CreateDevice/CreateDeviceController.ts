@@ -10,10 +10,7 @@ export class CreateDeviceController {
     const { name, deviceInput } = request.body;
 
     if (!name) {
-      throw new HttpError(
-        "Property 'name' not found in request body",
-        404
-      );
+      throw new HttpError("Property 'name' not found in request body", 404);
     }
 
     if (deviceInput.length == 0) {
