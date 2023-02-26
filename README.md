@@ -9,7 +9,7 @@ Este projeto tem como objetivo criar uma solução que permita a integração de
 
 Para este projeto, serão necessários os seguintes componentes:
 
-<<<<<<< HEAD
+
 - Placa ESP8266
 - Sensor LDR 3mm (Sensor de luz)
 - Jumper
@@ -19,20 +19,14 @@ Para este projeto, serão necessários os seguintes componentes:
 - Noded Js
 - Banco de dados mongoDb (local)
 - Led
-=======
-  *  Placa ESP8266
-  *  Sensor LDR 3mm (Sensor de luz)
-  *  Jumper
-  *  Biblioteca PubSubClient
-  *  Servidor MQTT (Broket Gratis ou Pago)
-  *  Protoboarad
-  * Noded Js
-  * Banco de dados mongoDb (local)
-  * Led
-  
+
+ 
 ## Documentação
 A documentação da API está disponível em http://localhost:5000/api/docs , Ela fornece informações detalhadas sobre as rotas disponíveis e os parâmetros de entrada e saída de cada rota.
->>>>>>> 43342ab0de90b3c2eb85174d4a53c390e9ca8ef5
+
+## Testes
+Para executar teste unitarios, baste executaar o comaando `yarn test` e para atualizar e abrir o coverage `yaarn coverage`
+
 
 ## Esquema elétrico
 
